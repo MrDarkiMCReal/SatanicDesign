@@ -1,0 +1,99 @@
+static:
+  # Домены
+  play_domain: "ʀᴇᴅᴍᴄ.ɢɢ"  # %design_play_domain%
+  store_domain: "ʀᴇᴅᴍᴄ.ʀᴜ"  # %design_store_domain%
+  store_url: "https://redmc.ru/store"  # %design_store_url%
+  store_url_display: "ʀᴇᴅᴍᴄ.ʀᴜ/sᴛᴏʀᴇ"  # %design_store_url_display%
+  store_url_simple: "www.redmc.ru"    #%design_store_url_simple%
+
+  # Ссылки
+  telegram_channel_url: "https://t.me/redmc_gg"  # %design_telegram_channel_url%
+  telegram_channel_url_display: "ᴛ.ᴍᴇ/ʀᴇᴅᴍᴄ_ɢɢ"  # %design_telegram_channel_url_display%
+
+  telegram_support_url: "https://t.me/redmc_support_bot"  # %design_telegram_support_url%
+  telegram_support_url_display: "ᴛ.ᴍᴇ/ʀᴇᴅᴍᴄ_sᴜᴘᴘᴏʀᴛ_ʙᴏᴛ"  # %design_telegram_support_url_display%
+
+  vk_public_url: "https://vk.com/redmc_gg"  # %design_vk_public_url%
+  vk_public_url_display: "ᴠᴋ.ᴄᴏᴍ/ʀᴇᴅᴍᴄ_ɢɢ"  # %design_vk_public_url_display%
+
+  discord_server_url: "https://discord.gg/redmc_gg"  # %design_discord_server_url%
+  discord_server_url_display: "ᴅɪsᴄᴏʀᴅ.ɢɢ/ʀᴇᴅᴍᴄ_ɢɢ"  # %design_discord_server_url_display%
+
+  # Цвета
+  clr_primary: "&#FF0048"  # %design_clr_primary%
+  clr_secondary: "&#FF0048"  # %design_clr_secondary%
+
+  clr_text_primary: "&#CFCFCF"  # %design_clr_text_primary%
+  clr_text_secondary: "&7"  # %design_clr_text_secondary%
+  clr_text_dark: "&8"  # %design_clr_text_dark%
+
+  clr_money: "&#BBD884"  # %design_clr_money%
+  clr_sapphire: "&#68C6D7"  # %design_clr_sapphire%
+
+  # Ранги
+  clr_copper: "&#ee8b6f"  # %design_clr_copper%
+  clr_gold: "&#eccc8b"  # %design_clr_gold%
+  clr_diamond: "&#65c7d2"  # %design_clr_diamond%
+  clr_emerald: "&#8cd742"  # %design_clr_emerald%
+  clr_amethyst: "&#c08cd4"  # %design_clr_amethyst%
+  clr_ruby: "&#AA0D55"  # %design_clr_ruby%
+
+  # Предметы. Пока что ссылаются на основные цвета (bad practice, лучше захардкодить в ручную). ps. на будущее сделать парсинг и определенный формат.
+  i_title: "%design_clr_primary%"  # %design_i_title%
+  i_lore: "%design_clr_text_primary%"
+  i_extra: ""
+
+playerformat:
+  default_icon: ""                                                                                      #   %pFormat_MrDarkiMC_icon%
+  default_prefix: "&f%img_default% &#8F8F8F"                                                            #   %pFormat_MrDarkiMC_prefix%
+  default_format: "&f &#8F8F8F{nickname}%luckperms_suffix%"                                           #   %pFormat_MrDarkiMC_format%
+  default_full: "&f %img_default% &#8F8F8F{nickname}%luckperms_suffix%"                               #   %pFormat_MrDarkiMC_full%
+
+  copper_icon: ""                                                                                      #   %pFormat_MrDarkiMC_icon%
+  copper_prefix: "&f%img_copper% &#F48C6C"                                                             #   %pFormat_MrDarkiMC_prefix%
+  copper_format: "  &#F48C6C{nickname}%luckperms_suffix%"                                             #   %pFormat_MrDarkiMC_format%
+  copper_full: "&f %img_copper% &#F48C6C{nickname}%luckperms_suffix%"                                #   %pFormat_MrDarkiMC_full%
+
+  gold_icon: ""                                                                                        #   %pFormat_MrDarkiMC_icon%
+  gold_prefix: "&f%img_gold% &#E5B74D"                                                                 #   %pFormat_MrDarkiMC_prefix%
+  gold_format: "&f &#E5B74D{nickname}%luckperms_suffix%"                                             #   %pFormat_MrDarkiMC_format%
+  gold_full: "&f %img_gold% &#E5B74D{nickname}%luckperms_suffix%"                                    #   %pFormat_MrDarkiMC_full%
+
+  diamond_icon: ""                                                                                     #   %pFormat_MrDarkiMC_icon%
+  diamond_prefix: "&f%img_diamond% &#04BCCC"                                                           #   %pFormat_MrDarkiMC_prefix%
+  diamond_format: "&f &#04BCCC{nickname}%luckperms_suffix%"                                          #   %pFormat_MrDarkiMC_format%
+  diamond_full: "&f %img_diamond% &#04BCCC{nickname}%luckperms_suffix%"                              #   %pFormat_MrDarkiMC_full%
+
+  emerald_icon: ""                                                                                     #   %pFormat_MrDarkiMC_icon%
+  emerald_prefix: "&f%img_emerald% &#94E61D"                                                           #   %pFormat_MrDarkiMC_prefix%
+  emerald_format: "&f &#94E61D{nickname}%luckperms_suffix%"                                          #   %pFormat_MrDarkiMC_format%
+  emerald_full: "&f %img_emerald% &#94E61D{nickname}%luckperms_suffix%"                              #   %pFormat_MrDarkiMC_full%
+
+  amethyst_icon: ""                                                                                    #   %pFormat_MrDarkiMC_icon%
+  amethyst_prefix: "&f%img_amethyst% &#AC74C4"                                                         #   %pFormat_MrDarkiMC_prefix%
+  amethyst_format: "&f &#AC74C4{nickname}%luckperms_suffix%"                                         #   %pFormat_MrDarkiMC_format%
+  amethyst_full: "&f %img_amethyst% &#AC74C4{nickname}%luckperms_suffix%"                            #   %pFormat_MrDarkiMC_full%
+
+  ruby_icon: ""                                                                                        #   %pFormat_MrDarkiMC_icon%
+  ruby_prefix: "&f%img_ruby% &#881856"                                                                 #   %pFormat_MrDarkiMC_prefix%
+  ruby_format: "&f &#881856{nickname}%luckperms_suffix%"                                             #   %pFormat_MrDarkiMC_format%
+  ruby_full: "&f %img_ruby% &#881856{nickname}%luckperms_suffix%"                                    #   %pFormat_MrDarkiMC_full%
+modules:
+  bossbar:
+    enable: true
+    update: 600
+    titles:
+      default: ""
+      copper: ""
+      gold: ""
+      diamond: ""
+      emerald: ""
+      amethyst: ""
+      ruby: ""
+  death-coords:
+    message:
+      enable: true
+      text:
+        - ' '
+        - '  Координаты смерти %x% %y% %z%'
+        - ' '

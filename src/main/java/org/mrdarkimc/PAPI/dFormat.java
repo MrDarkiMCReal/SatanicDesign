@@ -1,4 +1,4 @@
-package org.mrdarkimc;
+package org.mrdarkimc.PAPI;
 import java.text.DecimalFormat;
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
@@ -25,11 +25,16 @@ public class dFormat extends PlaceholderExpansion {
     public dFormat() {
     }
     @Override
+    public boolean persist() {
+        return true;
+    }
+    @Override
         public String onRequest(OfflinePlayer offlinePlayer, String identifier) {
             //usage: %dFormat_<decimalFormat>_<dataType>_<originalPlaceholderWithoutBrackets>%
             //usage: %dFormat_#,###_int_statistic_deaths%
             //supported deciminal = any that java.text.DecimalFormat supports
             //supported dataType = int long
+        
             //identifier will be "#,###_int_statistic_deaths" for ex
             String[] args = identifier.split("_");
             if (args.length!=3)
