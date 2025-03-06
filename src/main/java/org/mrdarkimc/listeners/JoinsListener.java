@@ -4,16 +4,18 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.mrdarkimc.wrappers.WrapperHandler;
+import org.mrdarkimc.PAPI.playerformatter.Cache;
+
 
 public class JoinsListener implements Listener {
     @EventHandler
     void onjoin(PlayerJoinEvent e) {
-        WrapperHandler.addPlayer(e.getPlayer());
+        //WrapperHandler.addPlayer(e.getPlayer());
     }
 
     @EventHandler
     void onquit(PlayerQuitEvent e) {
-        WrapperHandler.removePlayer(e.getPlayer());
+        //WrapperHandler.removePlayer(e.getPlayer());
+        Cache.getCache().remove(e.getPlayer());
     }
 }

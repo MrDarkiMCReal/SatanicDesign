@@ -10,3 +10,5 @@ depend:
 commands:
   sutil:
     usage: /design help
+  backrtp:
+    usage: /design help

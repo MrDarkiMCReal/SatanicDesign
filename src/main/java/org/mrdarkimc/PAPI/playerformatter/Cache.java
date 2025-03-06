@@ -10,11 +10,10 @@ import org.mrdarkimc.SatanicLib.VaultHandler;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cache implements Listener {
+public class Cache {
     private static final Map<Player, String> cache = new HashMap<>();
-    @EventHandler
-    void fetch(PlayerQuitEvent e) {
-    cache.remove(e.getPlayer());
+    public static Map<Player,String> getCache(){
+        return cache;
     }
 
     public static String getGroup(Player player) {

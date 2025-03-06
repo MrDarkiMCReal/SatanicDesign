@@ -81,19 +81,104 @@ playerformat:
 modules:
   bossbar:
     enable: true
-    update: 600
+    update: 50
+    enable_second_layer: true
     titles:
-      default: ""
-      copper: ""
-      gold: ""
-      diamond: ""
-      emerald: ""
-      amethyst: ""
-      ruby: ""
+      default: "&f%img_default% &#8F8F8F{nickname}%luckperms_suffix% %design_clr_money%%coinsengine_balance_short_money%  %design_clr_sapphire%%coinsengine_balance_short_sapphires%   &#D6CC90%statistic_player_kills% &f"
+      copper: "&f%img_copper% &#F48C6C{nickname}%luckperms_suffix% %design_clr_money%%coinsengine_balance_short_money%  %design_clr_sapphire%%coinsengine_balance_short_sapphires%   &#D6CC90%statistic_player_kills% &f"
+      gold: "&f%img_gold% &#E5B74D{nickname}%luckperms_suffix% %design_clr_money%%coinsengine_balance_short_money%  %design_clr_sapphire%%coinsengine_balance_short_sapphires%   &#D6CC90%statistic_player_kills% &f"
+      diamond: "&f%img_diamond% &#04BCCC &#8F8F8F{nickname}%luckperms_suffix% %design_clr_money%%coinsengine_balance_short_money%  %design_clr_sapphire%%coinsengine_balance_short_sapphires%   &#D6CC90%statistic_player_kills% &f"
+      emerald: "&f%img_emerald% &#94E61D{nickname}%luckperms_suffix% %design_clr_money%%coinsengine_balance_short_money%  %design_clr_sapphire%%coinsengine_balance_short_sapphires%   &#D6CC90%statistic_player_kills% &f"
+      amethyst: "&f%img_amethyst% &#AC74C4{nickname}%luckperms_suffix% %design_clr_money%%coinsengine_balance_short_money%  %design_clr_sapphire%%coinsengine_balance_short_sapphires%   &#D6CC90%statistic_player_kills% &f"
+      ruby: "&f%img_ruby% &#881856{nickname}%luckperms_suffix% %design_clr_money%%coinsengine_balance_short_money%  %design_clr_sapphire%%coinsengine_balance_short_sapphires%   &#D6CC90%statistic_player_kills% &f"
   death-coords:
+    enable: true
+    radius: 500
+    price: 50
+    time_in_ticks: 1200
+    command: 'sapp take %player_name% 50 -s'
+    not_found:
+      enable: true
+      text:
+        - ' '
+        - '%design_clr_primary%  Не было найдено подходящей локации за 20 попыток.'
+        - '%design_clr_text_primary%  Вы можете попробовать еще раз. %design_clr_primary%/backrtp'
+        - ' '
+    success:
+      enable: true
+      text:
+        - ' '
+        - '%design_clr_primary%  Телепорт на координаты %design_clr_text_primary%%x% %y% %z%'
+        - ' '
+    deny:
+      enable: true
+      text:
+        - ' '
+        - '%design_clr_primary%  Вам не хватает %diff% сапфиров'
+        - ' '
     message:
       enable: true
       text:
         - ' '
-        - '  Координаты смерти %x% %y% %z%'
+        - '%design_clr_primary%  Координаты смерти %design_clr_text_primary%%x% %y% %z%'
         - ' '
+  sound: #/sutil rSound world 10 5 5 5 sound 0.2 2 #играет звук в радиусе #rSound <world> <x y z> <r> <sound> <volume> <pitch>
+    enable: true
+  randomizer:
+    enable: true
+    randomtasks:
+      pickRandomSkin:
+        skin1:
+          chance: 30
+          commands:
+            - 'lp user %player_name% permission set itemskins.sword.calamity'
+            - 'sutil sendmessage %player_name% '
+            - 'sutil sendmessage %player_name% %design_clr_primary%  Вы получили скин %design_clr_text_primary%фиолетовый разрушитель'
+            - 'sutil sendmessage %player_name% %design_clr_primary%  Применимо к %design_clr_text_primary%незеритовый меч'
+            - 'sutil sendmessage %player_name% '
+            - 'itemskin preview %player_name% netherite_sword calamity'
+            - 'sutil playsound %player_name% UI_TOAST_CHALLENGE_COMPLETE 0.2 2'
+        skin2:
+          chance: 30
+          commands:
+            - 'lp user %player_name% permission set itemskins.sword.justice'
+            - 'sutil sendmessage %player_name% '
+            - 'sutil sendmessage %player_name% %design_clr_primary%  Вы получили скин %design_clr_text_primary%меч легионера'
+            - 'sutil sendmessage %player_name% %design_clr_primary%  Применимо к %design_clr_text_primary%незеритовый меч'
+            - 'sutil sendmessage %player_name% '
+            - 'itemskin preview %player_name% netherite_sword justice'
+            - 'sutil playsound %player_name% UI_TOAST_CHALLENGE_COMPLETE 0.2 2'
+        skin3:
+          chance: 30
+          commands:
+            - 'lp user %player_name% permission set itemskins.sword.titanium_blade'
+            - 'sutil sendmessage %player_name% '
+            - 'sutil sendmessage %player_name% %design_clr_primary%  Вы получили скин %design_clr_text_primary%титановый клинок'
+            - 'sutil sendmessage %player_name% %design_clr_primary%  Применимо к %design_clr_text_primary%незеритовый меч'
+            - 'sutil sendmessage %player_name% '
+            - 'itemskin preview %player_name% netherite_sword titanium_blade'
+            - 'sutil playsound %player_name% UI_TOAST_CHALLENGE_COMPLETE 0.2 2'
+        skin4:
+          chance: 30
+          commands:
+            - 'lp user %player_name% permission set itemskins.sword.silverlight'
+            - 'sutil sendmessage %player_name% '
+            - 'sutil sendmessage %player_name% %design_clr_primary%  Вы получили скин %design_clr_text_primary%лунный клинок'
+            - 'sutil sendmessage %player_name% %design_clr_primary%  Применимо к %design_clr_text_primary%незеритовый меч'
+            - 'sutil sendmessage %player_name% '
+            - 'itemskin preview %player_name% netherite_sword silverlight'
+            - 'sutil playsound %player_name% UI_TOAST_CHALLENGE_COMPLETE 0.2 2'
+      playRandomSound: #todo or for removal
+        sound1:
+          chance: 30
+          commands:
+            - 'playsound'
+            - 'sendmessage[penis]'
+        sound2:
+          chance: 30
+          commands:
+            - 'playsound'
+            - 'sendmessage[penis]'
+
+
+
