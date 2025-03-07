@@ -3,6 +3,7 @@ package org.mrdarkimc.modules;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.mrdarkimc.SatanicDesign;
 import org.mrdarkimc.modules.BossBar.BossBarHandler;
+import org.mrdarkimc.modules.CustomItems.ItemsModule;
 import org.mrdarkimc.modules.DeathCoords.DeathCoords;
 import org.mrdarkimc.modules.Randomizer.RandomizerModule;
 import org.mrdarkimc.modules.SoundModule.SoundDispatcher;
@@ -16,6 +17,11 @@ public class ModuleHandler {
     private DeathCoords coords;
     private SoundDispatcher soundDispatcher;
     private RandomizerModule randomizer;
+    private ItemsModule items;
+
+    public ItemsModule getItems() {
+        return items;
+    }
 
     public void setUpModules(){
         modules = new HashMap<>();
@@ -34,6 +40,12 @@ public class ModuleHandler {
         if (config.getBoolean("modules.randomizer.enable",false)){
             randomizer = new RandomizerModule();
             modules.put(randomizer.getClass().getName(),randomizer);
+        }
+        if (config.getBoolean("modules.items.enable",false)){
+            items = new ItemsModule();
+            modules.put(items.getClass().getName(),items);
+
+            //todo задефать эксепшены при попытке использовать предмет, если он выкл
         }
 
 

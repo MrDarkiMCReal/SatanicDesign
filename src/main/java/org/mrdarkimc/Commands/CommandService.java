@@ -1,13 +1,14 @@
 package org.mrdarkimc.Commands;
 
 import me.clip.placeholderapi.PlaceholderAPI;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Sound;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 import org.mrdarkimc.SatanicDesign;
 import org.mrdarkimc.SatanicLib.Utils;
+import org.mrdarkimc.modules.CustomItems.ItemsModule;
 import org.mrdarkimc.modules.SoundModule.SoundDispatcher;
 
 public class CommandService {
@@ -54,6 +55,30 @@ public class CommandService {
         String message = PlaceholderAPI.setPlaceholders(player,builder.toString());
         message = Utils.translateHex(message);
         player.sendMessage(message);
+    }
+    public static ItemStack giveItem(String... commandArgs) {
+        //usage /sutil give <player> <itemid>
+        Player player = Bukkit.getPlayer(commandArgs[1]);
+        if (player==null)
+            return null;
+        String item = commandArgs[2];
+        ItemStack stack = null;
+        switch (item){
+            case "reveal_dust":
+                stack = SatanicDesign.getInstance().getModules().getItems().getRevealDust();
+                break;
+            case "desorient":
+                stack = SatanicDesign.getInstance().getModules().getItems().getDesorient();
+                break;
+        }
+        if (stack!=null){
+            player.getInventory().addItem(stack);
+        }else {
+            Bukkit.getLogger().info(" ");
+            Bukkit.getLogger().info("[SatanicDesign] Игрок " + player + " не смог получить предмет: " + item);
+            Bukkit.getLogger().info(" ");
+        }
+        return stack;
     }
 
     public static void randomTask(String... commandArgs) {

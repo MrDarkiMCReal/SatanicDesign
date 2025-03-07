@@ -179,6 +179,27 @@ modules:
           commands:
             - 'playsound'
             - 'sendmessage[penis]'
-
+  items:
+    enable: true
+    desorient:
+      cooldown: 45
+      duration: 7
+      radius: 10
+      material: PAPER
+      display: "Оглушение "
+      lore:
+        - ' '
+        - ' &fОглушает'
+        - ' &fЗамедляет'
+        - ' '
+    reveal_dust:
+      cooldown: 45
+      duration: 7
+      radius: 10
+      material: PAPER
+      display: "пыль"
+      lore:
+        - ' &fподсвечивает врагов'
+        - ' '
 
 

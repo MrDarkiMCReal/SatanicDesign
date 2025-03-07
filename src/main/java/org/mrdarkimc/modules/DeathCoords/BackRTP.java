@@ -12,7 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 import org.mrdarkimc.SatanicDesign;
-import org.mrdarkimc.SatanicLib.Utils;
 import org.mrdarkimc.SatanicLib.messages.KeyedMessage;
 
 import java.util.List;
@@ -63,6 +62,8 @@ public class BackRTP implements CommandExecutor {
 
                     @Override
                     public void run() {
+                        loc.setX(loc.getX()+0.5);
+                        loc.setZ(loc.getZ()+0.5);
                         player.teleport(loc);
                         new KeyedMessage(player, "modules.death-coords.success", Map.of(
                                 "%x%", String.valueOf((int) loc.getX()),
@@ -93,13 +94,13 @@ public class BackRTP implements CommandExecutor {
             int zf = ThreadLocalRandom.current().nextInt(z - radius, z + radius);
             int yf = Bukkit.getWorld("world").getHighestBlockAt(xf, zf).getY();
 
-            if (is3x3Place(xf, yf, zf)) {
+            if (isOptimalPlace(xf, yf, zf)) {
                 return new Location(Bukkit.getWorld("world"), xf, yf+1, zf); // Возвращаем найденную локацию
             }
         }
         return null;
     }
-    public boolean is3x3Place(int x, int y, int z) {
+    public boolean isOptimalPlace(int x, int y, int z) {
         var blocked = List.of(Material.AIR, Material.LAVA, Material.WATER);
         Bukkit.getWorld("world").getBlockAt(x,y,z);
         for (int dx = -1; dx <= 1; dx++) {
@@ -117,7 +118,6 @@ public class BackRTP implements CommandExecutor {
         return has3x3WithAirAbove(x,y,z);
     }
     public boolean has3x3WithAirAbove(int x, int y, int z) {
-        var allowed = List.of(Material.AIR);
         y=y+1;
         Bukkit.getWorld("world").getBlockAt(x,y,z);
         for (int dx = -1; dx <= 1; dx++) {
