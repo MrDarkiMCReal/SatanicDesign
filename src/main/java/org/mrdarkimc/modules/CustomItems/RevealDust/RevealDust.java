@@ -38,6 +38,7 @@ public class RevealDust extends BasicItem {
     }
     void playVisualEffects(Location loc){
         new UseEffects(Particle.SOUL_FIRE_FLAME, loc,radius,500).runTask(SatanicDesign.getInstance());
+
     }
 
 }

@@ -13,7 +13,6 @@ import org.mrdarkimc.modules.CustomItems.Disorientation.Disorientation;
 import org.mrdarkimc.modules.CustomItems.RevealDust.RevealDust;
 import org.mrdarkimc.modules.CustomItems.Utils.BasicItem;
 
-import java.awt.event.ItemListener;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

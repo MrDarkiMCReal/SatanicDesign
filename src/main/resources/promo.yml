@@ -1,0 +1,14 @@
+promos:
+ mrdarkimc:
+   enable: true
+   joiner: 20
+   inviter: 100
+   count: 0
+ zxcgewre:
+   enable: true
+   joiner:
+     - ""
+   inviter:
+     - ""
+   count: 0
+

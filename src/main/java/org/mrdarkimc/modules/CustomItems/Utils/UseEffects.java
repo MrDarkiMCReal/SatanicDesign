@@ -31,8 +31,8 @@ public class UseEffects extends BukkitRunnable {
             double offsetX = radiusMin * Math.cos(angle);
             double offsetZ = radiusMin * Math.sin(angle);
             loc.getWorld().spawnParticle(Particle.FLAME, loc.getX() + offsetX, loc.getY(), loc.getZ() + offsetZ, 0, offsetX/2.5, 0, offsetZ/2.5);
-            SoundDispatcher.playSoundToPlayerInRadius(loc, (int) (radiusMax+10), Sound.ENTITY_GHAST_SHOOT, 0.25F, 1);
         }
+        SoundDispatcher.playSoundToPlayerInRadius(loc, (int) (radiusMax+10), Sound.ENTITY_GHAST_SHOOT, 0.25F, 1);
 //        radiusMin = radiusMin+0.5;
 
     }

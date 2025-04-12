@@ -4,6 +4,8 @@ builders:
     - 'deathcoords'
     - 'accept'
     - 'empty'
+  nearSkip:
+    - 'skipNearTag'
 tags:
   empty:
     text: " "
@@ -34,3 +36,13 @@ tags:
     click-event:
       type: "RUN_COMMAND"
       output: "duel accept {player}"
+  skipNearTag:
+    text: "%design_clr_text_primary%[скипнуть КД команды 10 монет]"
+    hover-event:
+      text:
+        - "%design_clr_text_primary%  Нажмите, что бы купить телепортацию"
+        - "%design_clr_text_primary%  Вы будете телепортированы в рандомную точку"
+        - "%design_clr_text_primary%  В радиусе %design_clr_primary%%radius% %design_clr_text_primary%от вашей точки смерти"
+    click-event:
+      type: "RUN_COMMAND"
+      output: "near {radius} skip"

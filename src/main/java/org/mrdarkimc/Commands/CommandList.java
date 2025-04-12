@@ -7,12 +7,16 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.mrdarkimc.modules.SoundModule.SoundDispatcher;
 
-public class CommandList implements CommandExecutor {
+import java.util.List;
+
+public class CommandList implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (commandSender instanceof Player player){
@@ -56,10 +60,23 @@ public class CommandList implements CommandExecutor {
                 commandSender.sendMessage("    ");
                 commandSender.sendMessage("    SatanicUtils аргументы: ");
                 commandSender.sendMessage("  rSound <world> x y z r sound volume pitch");
+                commandSender.sendMessage("  randomtask <task name> <player>");
+                commandSender.sendMessage("  sendmessage <player> <message>");
+                commandSender.sendMessage("  give <player> <itemid>");
+                commandSender.sendMessage("  playsound <player> sound volume pitch");
                 commandSender.sendMessage("    ");
                 return true;
         }
     }
 
 
+    @Nullable
+    @Override
+    public List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
+        switch (strings.length){
+            case 0:
+                return List.of("rSound","randomtask","sendmessage","give","playsound");
+        }
+        return null;
+    }
 }

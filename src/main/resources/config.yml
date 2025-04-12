@@ -79,6 +79,15 @@ playerformat:
   ruby_format: "&f &#881856{nickname}%luckperms_suffix%"                                             #   %pFormat_MrDarkiMC_format%
   ruby_full: "&f %img_ruby% &#881856{nickname}%luckperms_suffix%"                                    #   %pFormat_MrDarkiMC_full%
 modules:
+  mobs:
+    enable: true
+  promocodes:
+    enable: true
+    messages:
+      info:
+        - "  "
+        - "Использование /promo код"
+        - "  "
   bossbar:
     enable: true
     update: 50
@@ -179,6 +188,38 @@ modules:
           commands:
             - 'playsound'
             - 'sendmessage[penis]'
+  rewards:
+    messages:
+      next:
+        enable: true
+        text:
+          - ' '
+          - '%design_clr_primary%  Следующий сапфир через %design_clr_text_primary%{time} сек'
+          - ' '
+      given:
+        enable: true
+        text:
+          - ' '
+          - '%design_clr_primary%  Вы получили %design_clr_text_primary%сапфир'
+          - ' '
+      tasks:
+        - delay: 60 #seconds
+          requrements:
+            world: "afkworld"
+            radius: 50
+            location:
+              x: 10
+              y: 10
+              z: 10
+          commandlist:
+            - 'sapp give %playername% 1 -s'
+          announcer:
+            enable: true
+        - delay: 60 #seconds
+          commandlist:
+            - 'sapp give %playername% 1 -s'
+          announcer:
+            enable: false
   items:
     enable: true
     desorient:
@@ -201,5 +242,82 @@ modules:
       lore:
         - ' &fподсвечивает врагов'
         - ' '
-
-
+  nightvision:
+    on:
+      enable: true
+      text:
+        - ' '
+        - '%design_clr_primary%  Ночное зрение %design_clr_text_primary%вкл'
+        - ' '
+    off:
+      enable: true
+      text:
+        - ' '
+        - '%design_clr_primary%  Ночное зрение %design_clr_text_primary%выкл'
+        - ' '
+  near:
+    enable: true
+    skipPrice: 10
+    command: 'sapp take %player_name% 10 -s'
+    groups:
+      default: 100
+      copper: 140
+      gold: 160
+      diamond: 180
+      emerald: 200
+      amethyst: 220
+      ruby: 250
+    messages:
+      playersInRadius:
+        enable: true
+        text:
+          - ' '
+          - '&#CFCFCF  Игроки в радиусе &#FF0048{radius} блоков'
+      notEnoughMoney:
+        enable: true
+        text:
+          - ' '
+          - '&#CFCFCF  Не хватает %diff% сапфиров'
+          - ' '
+      usage:
+        enable: true
+        text:
+          - ' '
+          - '&#CFCFCF  Использование: &#FF0048/near 20 true'
+          - ' '
+      toofast:
+        enable: true
+        text:
+          - ' '
+          - '&#CFCFCF  Нельзя использовать так часто'
+          - '&#CFCFCF  Подождите еще {time}'
+          - ' '
+      paid:
+        enable: true
+        text: '&#CFCFCF  Вы скипнули КД за {amount}'
+      default:
+        enable: true
+        text: '  &#CFCFCFПовысьте группу до &f%img_copper%&#CFCFCF что бы получить &#FF0048+20 к радиусу'
+      copper:
+        enable: true
+        text: '  &#CFCFCFПовысьте группу до &f%img_gold%&#CFCFCF что бы получить &#FF0048+20 к радиусу'
+      gold:
+        enable: true
+        text: '  &#CFCFCFПовысьте группу до &f%img_diamond%&#CFCFCF что бы получить &#FF0048+20 к радиусу'
+      diamond:
+        enable: true
+        text: '  &#CFCFCFПовысьте группу до &f%img_emerald%&#CFCFCF что бы получить &#FF0048+20 к радиусу'
+      emerald:
+        enable: true
+        text: '  &#CFCFCFПовысьте группу до &f%img_amethyst%&#CFCFCF что бы получить &#FF0048+20 к радиусу'
+      amethyst:
+        enable: true
+        text: '  &#CFCFCFПовысьте группу до &f%img_ruby%&#CFCFCF что бы получить &#FF0048+20 к радиусу'
+      ruby:
+        enable: true
+        text: '  &#CFCFCFВаша донат группа имеет &#FF0048максимальный радиус.'
+      notFound:
+        enable: true
+        text:
+          - ' '
+          - '&#CFCFCF  Игроков в радиусе &#FF0048{radius} блоков не обнаружено'

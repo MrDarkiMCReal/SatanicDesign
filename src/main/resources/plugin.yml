@@ -12,3 +12,9 @@ commands:
     usage: /design help
   backrtp:
     usage: /design help
+  near:
+    usage: /near
+  nightvision:
+    usage: /near
+    aliases:
+      - nv

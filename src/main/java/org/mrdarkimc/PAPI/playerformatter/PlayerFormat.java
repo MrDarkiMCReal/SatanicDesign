@@ -36,8 +36,11 @@ public class PlayerFormat extends PlaceholderExpansion {
     @Override
     public String onRequest(OfflinePlayer offlinePlayer, String identifier) {
         String[] args = identifier.split("_");
-        Player player = Bukkit.getPlayer(args[0]);
-        String value = args[1];
+        //Player player = Bukkit.getPlayer(args[0]);
+        String value = args[args.length-1];
+        int index = identifier.length()-value.length();
+        String playername = identifier.substring(0,index-1); //-1 потому, что identifier идет с _
+        Player player = Bukkit.getPlayer(playername);
         if (!List.of("icon", "prefix", "suffix", "format", "full").contains(value.toLowerCase()))
             return "PlaceholderNotFound";
         if (player != null) {
@@ -49,26 +52,6 @@ public class PlayerFormat extends PlaceholderExpansion {
             text = PlaceholderAPI.setPlaceholders(player,text);
             text = Utils.translateHex(text);
             return text;
-//                switch (value.toLowerCase()){
-//                    case "prefix":
-//
-//                        break;
-//                    case "suffix":
-//                        //
-//                        break;
-//                    case "icon":
-//                        //
-//                        break;
-//                    case "format":
-//                        //
-//                        break;
-//                    case "full":
-//                        //
-//                        break;
-//                    default:
-//                        //
-//                        break;
-//                }
         }
         return "PlayerNull";
     }

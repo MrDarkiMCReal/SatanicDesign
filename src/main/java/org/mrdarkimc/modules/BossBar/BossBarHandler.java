@@ -52,7 +52,12 @@ public class BossBarHandler extends BukkitRunnable implements BaseModule, Listen
     }
 
     public void addplayer(Player player) {
-        bars.put(player, createBossBar(player)).forEach(element -> element.addPlayer(player));
+        List<BossBar> created = createBossBar(player);
+
+        for (BossBar bossBar : created) {
+            bossBar.addPlayer(player);
+        }
+        bars.put(player, created);
     }
     void removeplayer(Player player) {
         bars.remove(player).forEach(BossBar::removeAll);

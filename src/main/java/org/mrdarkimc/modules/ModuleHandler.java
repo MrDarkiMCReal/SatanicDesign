@@ -5,6 +5,8 @@ import org.mrdarkimc.SatanicDesign;
 import org.mrdarkimc.modules.BossBar.BossBarHandler;
 import org.mrdarkimc.modules.CustomItems.ItemsModule;
 import org.mrdarkimc.modules.DeathCoords.DeathCoords;
+import org.mrdarkimc.modules.MobsModule.MobsModule;
+import org.mrdarkimc.modules.NearCommand.NearModule;
 import org.mrdarkimc.modules.Randomizer.RandomizerModule;
 import org.mrdarkimc.modules.SoundModule.SoundDispatcher;
 
@@ -18,6 +20,8 @@ public class ModuleHandler {
     private SoundDispatcher soundDispatcher;
     private RandomizerModule randomizer;
     private ItemsModule items;
+    private NearModule near;
+    private MobsModule mobs;
 
     public ItemsModule getItems() {
         return items;
@@ -28,7 +32,7 @@ public class ModuleHandler {
         FileConfiguration config = SatanicDesign.getInstance().getConfig();
         if (config.getBoolean("modules.bossbar.enable",false)){
             bossBarHandler = new BossBarHandler();
-            //todo modules.put(bossBarHandler.getClass().getName(),bossBarHandler);
+            modules.put(bossBarHandler.getClass().getName(),bossBarHandler);
         }
         if (config.getBoolean("modules.sound.enable",false)){
             //SoundDispatcher.enabled = true;
@@ -45,7 +49,15 @@ public class ModuleHandler {
             items = new ItemsModule();
             modules.put(items.getClass().getName(),items);
 
-            //todo задефать эксепшены при попытке использовать предмет, если он выкл
+            //todo задефать эксепшены при попытке использовать предмет, если он был выключен
+        }
+        if (config.getBoolean("modules.near.enable",false)){
+            near = new NearModule();
+            modules.put(near.getClass().getName(),near);
+        }
+        if (config.getBoolean("modules.mobs.enable",false)){
+            mobs = new MobsModule();
+            modules.put(mobs.getClass().getName(),mobs);
         }
 
 
